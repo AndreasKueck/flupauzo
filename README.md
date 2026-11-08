@@ -2,7 +2,7 @@
 
 ## Gheneralo
 
-Flupauzo estas programpako funkcianta neenrete, por prognozi akvonivelojn. Ghi funkcias per komandlinia enigo kadre de la Android-a apo [Termux](https://play.google.com/store/apps/details?id=com.termux). Flupauzo bazighas sur programpako [slackwater](https://github.com/openwatersio/homebrew-tap). Ankau ghi do devas esti instalita.
+Flupauzo estas programpako funkcianta neenrete, por prognozi akvonivelojn. Ghi funkcias per komandlinia enigo kadre de la Android-a apo [Termux](https://play.google.com/store/apps/details?id=com.termux). Flupauzo bazighas sur programpako [slackwater](https://github.com/openwatersio/homebrew-tap) de [Open Waters](https://github.com/openwatersio). Ankau slackwater do devas esti instalita.
 
 **La prognozoj estas neoficialaj. Uzi ilin okazas je propra risko.**
 
