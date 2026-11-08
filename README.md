@@ -4,9 +4,11 @@
 
 Flupauzo estas programpako funkcianta neenrete, por prognozi akvonivelojn. Ghi funkcias per komandlinia enigo kadre de la Android-a apo [Termux](https://play.google.com/store/apps/details?id=com.termux). Flupauzo bazighas sur programpako [slackwater](https://github.com/openwatersio/homebrew-tap). Ankau ghi do devas esti instalita.
 
+**La prognozoj estas neoficialaj. Uzi ilin okazas je propra risko.**
+
 ## Uzo
 
-Flupauzo eligas ekstremojn au templinion de akvoniveloj. Jen shablonaj ekzemploj (komandoj aliaj, ol kun `ekstremoj` kaj `templinio`, aktuale ne estas subtenataj):
+Flupauzo prognozas ekstremojn au templinion de akvoniveloj. Jen shablonaj uz-ekzemploj:
 
 ```
 flupauzo ekstremoj -p 53.76,9.39 --starto 2026-11-15 | flupauzo-eligo
@@ -18,13 +20,18 @@ Kaj:
 flupauzo templinio -p 53.76,9.39 --starto 2026-11-15 --fino 2026-11-16 --intervalo 30 | flupauzo-eligo
 ```
 
-En la ekzemploj `53.76,9.39` signifas: latitudo 53,76° norde, longitudo 9.39° oriente.
+En la ekzemploj `53.76,9.39` specifas lokon kun latitudo 53,76° norde kaj longitudo 9,39° oriente.
+Specifas `--intervalo 30` intervalon de 30 minutoj.
+
+Aktuale ne estas subtenataj
+- ebloj aliaj, por specifi lokon, kaj
+- komandoj aliaj, ol tiaj funkciantaj kombine kun `ekstremoj` kaj `templinio`.
 
 Sekvas priskribo de la procedo, por funkciigi flupauzo-n en sia smartfono.
 
 ## Instali npm en Termux
 
-Malfermu apon Termux kaj en ghian konzolon kaj enigu jenan komandon:
+Malfermu apon Termux kaj en ghian konzolon enigu jenan komandon:
 
 ```
 pkg install npm
@@ -50,7 +57,7 @@ pkg install python
 
 ## Prepari kelkajn pliajn aferojn
 
-En la Termux-konzolon enigu post la alia jenajn komandojn:
+En la Termux-konzolon enigu unu post la alia jenajn komandojn:
 
 ```
 mkdir -p "$HOME/.local/bin
@@ -60,12 +67,8 @@ echo 'export PATH="$HOME/.local/bin:$PATH" >> ~/.bashrc
 
 ## Krei programon flupauzo
 
-
-```
-
-```
-
-Kaj:
+Kopiu la enhavon de [krei_flupauzo_n.sh](https://github.com/AndreasKueck/flupauzo/blob/main/krei_flupauzo_n.sh), algluu ghin en la Termux-konzolon kaj tushu la enigo-klavon.
+Poste enigu en la Termux-konzolon jenon:
 
 ```
 chmod +x "$HOME/.local/bin/flupauzo"
@@ -73,21 +76,9 @@ chmod +x "$HOME/.local/bin/flupauzo"
 
 ## Krei programon flupauzo-eligo
 
-Enigu ...
-
-```
-
-```
-
-Kaj:
+Kopiu la enhavon de [krei_flupauzo_eligo_n.sh](https://github.com/AndreasKueck/flupauzo/blob/main/krei_flupauzo_eligo_n.sh), algluu ghin en la Termux-konzolon kaj tushu la enigo-klavon.
+Poste enigu en la Termux-konzolon jenon:
 
 ```
 chmod +x "$HOME/.local/bin/flupauzo-eligo"
-
-```
-
-Kaj:
-
-```
-chmod +x "$HOME/.local/bin/flupauzo"
 ```
