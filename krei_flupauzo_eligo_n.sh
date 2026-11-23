@@ -44,8 +44,8 @@ TYPEN = {
 }
 
 KOEPFE = {
-    3: ("Dato", "Horo (UTK)", "Nivelo"),
-    4: ("Dato", "Horo (UTK)", "Tipo", "Nivelo"),
+    3: ("Dato", "Horo", "Nivelo"),
+    4: ("Dato", "Horo", "Tipo", "Nivelo"),
 }
 
 
@@ -87,11 +87,13 @@ def datum_lesen(text):
 
     return date(int(treffer[3]), monat, int(treffer[2]))
 
+class UnbekanntesZeitformat(ValueError):
+    pass
 
 def nach_utk(lokales_datum, text):
     treffer = ZEIT.fullmatch(text)
     if not treffer:
-        raise ValueError(
+        raise UnbekanntesZeitformat(
             f"Nekonata horformato aŭ mankanta horzono: {text!r}"
         )
 
@@ -216,12 +218,20 @@ def umwandeln(eingabe):
                 if lokales_datum is None:
                     raise ValueError("Mankas dato por la unua evento.")
 
-                utk = nach_utk(lokales_datum, zeit_text)
-
-                neue_zeile = [
-                    utk.date().isoformat(),
-                    utk.strftime("%H:%M"),
-                ]
+                try:
+                    utk = nach_utk(lokales_datum, zeit_text)
+                except UnbekanntesZeitformat:
+                    # Nicht umgerechnet: lokales Datum und Zeitangabe behalten.
+                    neue_zeile = [
+                        lokales_datum.isoformat(),
+                        zeit_text,
+                    ]
+                else:
+                    # Umgerechnet: UTK-Datum verwenden und Zeit kennzeichnen.
+                    neue_zeile = [
+                        utk.date().isoformat(),
+                        utk.strftime("%H:%M") + " UTK",
+                    ]
 
                 # Nur extremes besitzt eine Typ-Spalte.
                 if len(kopf) == 4:
@@ -251,8 +261,15 @@ def umwandeln(eingabe):
 
 def main():
     try:
-        # Erst nach erfolgreicher Umrechnung ausgeben.
-        sys.stdout.write(umwandeln(sys.stdin))
+        # Originalzeilen einschließlich Rahmen, Farben und Zeilenenden behalten.
+        original = sys.stdin.readlines()
+
+        try:
+            ausgabe = umwandeln(original)
+        except UnbekanntesZeitformat:
+            ausgabe = "".join(original)
+
+        sys.stdout.write(ausgabe)
         sys.stdout.flush()
     except ValueError as fehler:
         print(f"Eraro: {fehler}", file=sys.stderr)
