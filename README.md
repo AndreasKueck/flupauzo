@@ -11,21 +11,33 @@ Flupauzo estas programpako funkcianta neenrete, por prognozi akvonivelojn. Ghi f
 Flupauzo prognozas ekstremojn au templinion de akvoniveloj. Jen shablonaj uz-ekzemploj:
 
 ```
-flupauzo ekstremoj -p 53.76,9.39 --starto 2026-11-15 | flupauzo-eligo
+flupauzo ekstremoj -p 52.75,-4.05 --starto 2028-11-15 | flupauzo-eligo
 ```
 
 Kaj:
 
 ```
-flupauzo templinio -p 53.76,9.39 --starto 2026-11-15 --fino 2026-11-16 --intervalo 30 | flupauzo-eligo
+flupauzo templinio -p 52.75,-4.05 --starto 2028-11-15 --fino 2028-11-16 --intervalo 30 | flupauzo-eligo
 ```
 
-En la ekzemploj `53.76,9.39` specifas lokon kun latitudo 53,76° norde kaj longitudo 9,39° oriente.
+En la ekzemploj `52.75,-4.05` specifas lokon kun latitudo 52,75° norde kaj longitudo 4,05° okcidente.
 Specifas `--intervalo 30` intervalon de 30 minutoj.
 
+Anstatau `-p 52.75,-4.05` oni povas enigi `-s ` plus staciokodon; en la ekzemplo tio estas `ticon/barmouth-bar-gbr-cmems`, do ekzemple<br>
+
+```
+flupauzo ekstremoj -s ticon/barmouth-bar-gbr-cmems --starto 2028-11-15 | flupauzo-eligo
+```
+
+Por ricevi liston de staciokodoj de stacioj en au proksime al loko de difinita nomo, oni enigu ekzemple
+
+```
+flupauzo stacioj "barmouth"
+```
+
 Aktuale ne estas subtenataj
-- ebloj aliaj, por specifi lokon, kaj
-- komandoj aliaj, ol tiaj funkciantaj kombine kun `ekstremoj` kaj `templinio`.
+- ebloj aliaj, por specifi lokon au stacion, kaj
+- komandoj aliaj, ol tiaj funkciantaj kombine kun `ekstremoj`, `stacioj` kaj `templinio`.
 
 Sekvas priskribo de la procedo, por funkciigi flupauzo-n en sia smartfono.
 
