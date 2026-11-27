@@ -1,0 +1,18 @@
+{
+  "name": "flupauzo-android",
+  "version": "0.9.0",
+  "private": true,
+  "scripts": {
+    "bundle": "esbuild flupauzo-pri.mjs --bundle --platform=browser --format=esm --outfile=build/assets/js/app.js"
+  },
+  "dependencies": {
+    "@slackwater/database": "1.0.1-beta.20261107",
+    "slackwater": "1.0.0-beta.6"
+  },
+  "devDependencies": {
+    "esbuild-wasm": "0.28.2"
+  },
+  "overrides": {
+    "@slackwater/engine": "1.0.0-beta.10"
+  }
+}
