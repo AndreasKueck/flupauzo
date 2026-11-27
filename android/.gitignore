@@ -1,0 +1,10 @@
+/node_modules/
+/build/
+/assets/js/app.js
+/assets/generated/slackwater.tcdb
+*.apk
+*.idsig
+*.p12
+*.jks
+*.keystore
+*.pfx

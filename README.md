@@ -1,6 +1,11 @@
 # Flupauzo
 
-## Gheneralo
+## Du variantoj
+
+- **[Android-apo](android/README.md):** neenreta apo kun staciosercho, kalendaro, ekstremoj kaj templinio. Vidu la apartan priskribon kaj la instrukciojn por konstrui la APK.
+- **Komandlinia varianto:** por uzo en Termux. La sekvaj instrukcioj rilatas al tiu varianto.
+
+## Komandlinia varianto
 
 Flupauzo estas programpako funkcianta neenrete, por prognozi akvonivelojn. Ghi funkcias per komandlinia enigo kadre de la Android-a apo [Termux](https://play.google.com/store/apps/details?id=com.termux). Flupauzo bazighas sur programpako [slackwater](https://github.com/openwatersio/homebrew-tap) de [Open Waters](https://github.com/openwatersio). Ankau slackwater do devas esti instalita.
 
